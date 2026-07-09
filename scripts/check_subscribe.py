@@ -56,10 +56,10 @@ def check_subscribe():
     subscribe_today = []
     for row in rows:
         cell = row.get("cell", {})
-        bond_nm = cell.get("bond_nm", "").strip()
-        apply_date = cell.get("apply_date", "").strip()
-        bond_id = cell.get("bond_id", "").strip()
-        status_cd = cell.get("status_cd", "").strip()
+        bond_nm = (cell.get("bond_nm") or "").strip()
+        apply_date = (cell.get("apply_date") or "").strip()
+        bond_id = (cell.get("bond_id") or "").strip()
+        status_cd = (cell.get("status_cd") or "").strip()
 
         # 申购日期匹配今天，或状态为"申购"的
         if apply_date == today_str or status_cd == "申购":
